@@ -16,7 +16,7 @@ import model.PasajeroM;
 @SessionScoped
 public class PasajeroC implements Serializable {
 
-    PasajeroM pas;
+    PasajeroM pas = new PasajeroM();
     List<PasajeroM> lstpas;
     
     @PostConstruct

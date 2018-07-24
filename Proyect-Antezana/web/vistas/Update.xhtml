@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <ui:composition>
+            <p:dialog id="UpdatePas"
+                      widgetVar="Updatepas"
+                      appendTo="@(body)"
+                      header="Modificar Pasajero"
+                      resizable="false"
+                      responsive=".0"
+                      modal="true" showEffect="explode">
+                <h:form>
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="Origen"/>
+                        <p:inputText value="#{pasajeroC.pas.origenPas}" placeholder="Origen"/>
+                        <p:outputLabel value="Destino"/>
+                        <p:inputText value="#{pasajeroC.pas.destPas}" placeholder="Destino"/>
+                        <p:commandButton value="Aceptar" actionListener="#{pasajeroC.update()}" update=":form:data" oncomplete="handleSubmit(args,'UpdatePas');"/>
+                    </p:panelGrid>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </h:body>
+</html>
+
