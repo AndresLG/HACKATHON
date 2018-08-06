@@ -17,7 +17,7 @@ import model.PasajeroM;
 public class PasajeroC implements Serializable {
 
     PasajeroM pas = new PasajeroM();
-    List<PasajeroM> lstpas;
+    private List<PasajeroM> lstpas;
     
     @PostConstruct
     public void Iniciar(){
@@ -48,7 +48,7 @@ public class PasajeroC implements Serializable {
         PasajeroD dao;
         try {
             dao = new PasajeroD();
-            dao.agregar(pas);
+            dao.modificar(pas);
             list();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Modificado con exito"));
         } catch (Exception e) {
@@ -61,7 +61,7 @@ public class PasajeroC implements Serializable {
         PasajeroD dao;
         try {
             dao = new PasajeroD();
-            dao.agregar(pas);
+            dao.eliminar(pas);
             list();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Eliminado con exito"));
         } catch (Exception e) {

@@ -38,12 +38,12 @@
                     <p:outputLabel value="#{pas.destPas}"/>
                 </p:column>
                 <f:facet name="footer">
-                    <p:commandButton value="Agregar" actionListener="#{pasajeroC.add()}" oncomplete="PF('NewPas').show();" update="NewPas"/>
+                    <p:commandButton value="Agregar" actionListener="#{pasajeroC.preparPas()}" oncomplete="PF('NewPas').show();" update="NewPas"/>
                     <p:commandButton value="Refresh" actionListener="#{pasajeroC.list()}" update="form"/>
                 </f:facet>
             </p:dataTable>
             <p:contextMenu for="data">
-                <p:menuitem value="editar" icon="ui-icon-search" oncomplete="PF('UpdatePas').show();" update="Updatepas"/>
+                <p:menuitem value="editar" icon="ui-icon-search" oncomplete="PF('UpdatePas').show();" update="UpdatePas"/>
                 <p:menuitem value="borrar" icon="ui-icon-clear" update="data" actionListener="#{pasajeroC.delete()}"/>
             </p:contextMenu>
         </h:form>
