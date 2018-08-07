@@ -12,7 +12,7 @@ import lombok.Data;
 import model.PasajeroM;
 
 @Data
-@Named(value = "pasajeroC")
+@Named(value = "PasajeroC")
 @SessionScoped
 public class PasajeroC implements Serializable {
 

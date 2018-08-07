@@ -4,26 +4,26 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    <h:body>
-        <ui:composition>
-            <p:dialog id="UpdatePas"
-                      widgetVar="Updatepas"
-                      appendTo="@(body)"
-                      header="Modificar Pasajero"
-                      resizable="false"
-                      responsive=".0"
-                      modal="true" showEffect="explode">
-                <h:form>
-                    <p:panelGrid columns="2">
-                        <p:outputLabel value="Origen"/>
-                        <p:inputText value="#{pasajeroC.pas.origenPas}" placeholder="Origen"/>
-                        <p:outputLabel value="Destino"/>
-                        <p:inputText value="#{pasajeroC.pas.destPas}" placeholder="Destino"/>
-                        <p:commandButton value="Aceptar" actionListener="#{pasajeroC.update()}" update=":form:data" oncomplete="handleSubmit(args,'UpdatePas');"/>
-                    </p:panelGrid>
-                </h:form>
-            </p:dialog>
-        </ui:composition>
-    </h:body>
+    <ui:composition>
+        
+        <p:dialog id="UpdatePas"
+                  widgetVar="Updatepas"
+                  appendTo="@(body)"
+                  header="Modificar Pasajero"
+                  closeOnEscape="true"
+                  resizable="false"
+                  responsive=".0"
+                  modal="true" showEffect="explode">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Origen"/>
+                    <p:inputText value="#{PasajeroC.pas.origenPas}" placeholder="Origen"/>
+                    <p:outputLabel value="Destino"/>
+                    <p:inputText value="#{PasajeroC.pas.destPas}" placeholder="Destino"/>
+                    <p:commandButton value="Aceptar" actionListener="#{PasajeroC.update()}" update=":form:data" oncomplete="handleSubmit(args,'Updatepas');"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+    
 </html>
-

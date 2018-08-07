@@ -12,7 +12,7 @@ public class Dao {
     public void Conectar() throws Exception{
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=BDAntezana,user,vallegrande2017");
+            cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=BDAntezana,SA,vallegrande2018");
         } catch (SQLException e) {
             throw e;
         }
@@ -30,3 +30,6 @@ public class Dao {
         }
     }
 }
+
+
+//cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=BDAntezana,user,vallegrande2017");

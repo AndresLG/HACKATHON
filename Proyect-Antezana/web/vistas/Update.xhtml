@@ -17,10 +17,10 @@
             <h:form>
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Origen"/>
-                    <p:inputText value="#{pasajeroC.pas.origenPas}" placeholder="Origen"/>
+                    <p:inputText value="#{PasajeroC.pas.origenPas}" placeholder="Origen"/>
                     <p:outputLabel value="Destino"/>
-                    <p:inputText value="#{pasajeroC.pas.destPas}" placeholder="Destino"/>
-                    <p:commandButton value="Aceptar" actionListener="#{pasajeroC.update()}" update=":form:data" oncomplete="handleSubmit(args,'Updatepas');"/>
+                    <p:inputText value="#{PasajeroC.pas.destPas}" placeholder="Destino"/>
+                    <p:commandButton value="Aceptar" actionListener="#{PasajeroC.update()}" update=":form:data" oncomplete="handleSubmit(args,'Updatepas');"/>
                 </p:panelGrid>
             </h:form>
         </p:dialog>

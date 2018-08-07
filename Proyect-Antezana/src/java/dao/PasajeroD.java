@@ -33,7 +33,7 @@ public class PasajeroD extends Dao implements PasajeroI{
     public void modificar(PasajeroM pas) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.getCn().prepareStatement("update Pasajero set origenPas=?,destPas where idPas=?");
+            PreparedStatement st = this.getCn().prepareStatement("update Pasajero set origenPas=?,destPas=? where idPas=?");
             st.setString(1, pas.getOrigenPas());
             st.setString(2, pas.getDestPas());
             st.setInt(3, pas.getIdPas());
