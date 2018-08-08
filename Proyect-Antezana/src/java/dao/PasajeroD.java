@@ -10,17 +10,17 @@ import model.PasajeroM;
 public class PasajeroD extends Dao implements PasajeroI{
 
     @Override
-    public void agregar(PasajeroM pas) throws Exception {
+    public void agregar(PasajeroM pasajero) throws Exception {
         try {
             this.Conectar();
             PreparedStatement st = this.getCn().prepareStatement("insert into Pasajero(nomPas, apePas, tipoDocPas, numDocPas, edadPas, origenPas, destPas) values(?,?,?,?,?,?,?)");
-            st.setString(1, pas.getNomPas());
-            st.setString(2, pas.getApePas());
-            st.setString(3, pas.getTipoDocPas());
-            st.setString(4, pas.getNumDocPas());
-            st.setString(5, pas.getEdadPas());
-            st.setString(6, pas.getOrigenPas());
-            st.setString(7, pas.getDestPas());
+            st.setString(1, pasajero.getNomPas());
+            st.setString(2, pasajero.getApePas());
+            st.setString(3, pasajero.getTipoDocPas());
+            st.setString(4, pasajero.getNumDocPas());
+            st.setString(5, pasajero.getEdadPas());
+            st.setString(6, pasajero.getOrigenPas());
+            st.setString(7, pasajero.getDestPas());
             st.executeUpdate();
         } catch (Exception e) {
             throw e;
@@ -30,13 +30,13 @@ public class PasajeroD extends Dao implements PasajeroI{
     }
 
     @Override
-    public void modificar(PasajeroM pas) throws Exception {
+    public void modificar(PasajeroM pasajero) throws Exception {
         try {
             this.Conectar();
             PreparedStatement st = this.getCn().prepareStatement("update Pasajero set origenPas=?,destPas=? where idPas=?");
-            st.setString(1, pas.getOrigenPas());
-            st.setString(2, pas.getDestPas());
-            st.setInt(3, pas.getIdPas());
+            st.setString(1, pasajero.getOrigenPas());
+            st.setString(2, pasajero.getDestPas());
+            st.setInt(3, pasajero.getIdPas());
             st.executeUpdate();
         } catch (Exception e) {
             throw e;
@@ -46,11 +46,11 @@ public class PasajeroD extends Dao implements PasajeroI{
     }
 
     @Override
-    public void eliminar(PasajeroM pas) throws Exception {
+    public void eliminar(PasajeroM pasajero) throws Exception {
         try {
             this.Conectar();
             PreparedStatement st = this.getCn().prepareStatement("delete from Pasajero where idPas=?");
-            st.setInt(1, pas.getIdPas());
+            st.setInt(1, pasajero.getIdPas());
             st.executeUpdate();
         } catch (Exception e) {
             throw e;
@@ -70,16 +70,16 @@ public class PasajeroD extends Dao implements PasajeroI{
             rs = st.executeQuery();
             lista = new ArrayList();
             while(rs.next()){
-                PasajeroM pas = new PasajeroM();
-                pas.setIdPas(rs.getInt("IdPas"));
-                pas.setNomPas(rs.getString("NomPas"));
-                pas.setApePas(rs.getString("ApePas"));
-                pas.setTipoDocPas(rs.getString("TipoDocPas"));
-                pas.setNumDocPas(rs.getString("NumDocPas"));
-                pas.setEdadPas(rs.getString("EdadPas"));
-                pas.setOrigenPas(rs.getString("OrigenPas"));
-                pas.setDestPas(rs.getString("DestPas"));
-                lista.add(pas);
+                PasajeroM pasajero = new PasajeroM();
+                pasajero.setIdPas(rs.getInt("IdPas"));
+                pasajero.setNomPas(rs.getString("NomPas"));
+                pasajero.setApePas(rs.getString("ApePas"));
+                pasajero.setTipoDocPas(rs.getString("TipoDocPas"));
+                pasajero.setNumDocPas(rs.getString("NumDocPas"));
+                pasajero.setEdadPas(rs.getString("EdadPas"));
+                pasajero.setOrigenPas(rs.getString("OrigenPas"));
+                pasajero.setDestPas(rs.getString("DestPas"));
+                lista.add(pasajero);
             }
             return lista;
         } catch (Exception e) {

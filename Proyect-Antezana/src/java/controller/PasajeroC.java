@@ -12,12 +12,12 @@ import lombok.Data;
 import model.PasajeroM;
 
 @Data
-@Named(value = "PasajeroC")
+@Named(value = "pasajeroC")
 @SessionScoped
 public class PasajeroC implements Serializable {
 
-    PasajeroM pas = new PasajeroM();
-    private List<PasajeroM> lstpas;
+    PasajeroM pasajero = new PasajeroM();
+    private List<PasajeroM> lstpasajero;
     
     @PostConstruct
     public void Iniciar(){
@@ -27,15 +27,15 @@ public class PasajeroC implements Serializable {
         }
     }
     
-    public void PreparPas(){
-        pas = new PasajeroM();
+    public void preparPasajero(){
+        pasajero = new PasajeroM();
     }
     
     public void add() throws Exception{
         PasajeroD dao;
         try {
             dao = new PasajeroD();
-            dao.agregar(pas);
+            dao.agregar(pasajero);
             list();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Agregado con exito"));
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class PasajeroC implements Serializable {
         PasajeroD dao;
         try {
             dao = new PasajeroD();
-            dao.modificar(pas);
+            dao.modificar(pasajero);
             list();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Modificado con exito"));
         } catch (Exception e) {
@@ -61,7 +61,7 @@ public class PasajeroC implements Serializable {
         PasajeroD dao;
         try {
             dao = new PasajeroD();
-            dao.eliminar(pas);
+            dao.eliminar(pasajero);
             list();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Eliminado con exito"));
         } catch (Exception e) {
@@ -74,7 +74,7 @@ public class PasajeroC implements Serializable {
         PasajeroD dao;
         try {
             dao = new PasajeroD();
-            lstpas = dao.listar();
+            lstpasajero = dao.listar();
         } catch (Exception e) {
             throw e;
         }

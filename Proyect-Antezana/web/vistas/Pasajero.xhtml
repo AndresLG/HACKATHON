@@ -7,44 +7,44 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Pasajeros</title>
-        <script src="../../resource/jsfCrud.js" type="text/javascript"></script>
+        <script src="../../resources/jsfCrud.js" type="text/javascript"></script>
     </h:head>
     <h:body>
         <h:form id="form">
             <p:growl autoUpdate="true" life="1500"/>
-            <p:dataTable id="data" value="#{PasajeroC.lstpas}" var="pas" paginator="true" rows="8" selectionMode="single" selection="#{PasajeroC.pas}" rowKey="#{pas.idPas}">
+            <p:dataTable id="data" value="#{pasajeroC.lstpasajero}" var="pasajero" paginator="true" rows="8" selectionMode="single" selection="#{pasajeroC.pasajero}" rowKey="#{pasajero.idPas}">
                 <p:column headerText="Codigo">
-                    <p:outputLabel value="#{pas.idPas}"/>
+                    <p:outputLabel value="#{pasajero.idPas}"/>
                 </p:column>
                 <p:column headerText="Nombre">
-                    <p:outputLabel value="#{pas.nomPas}"/>
+                    <p:outputLabel value="#{pasajero.nomPas}"/>
                 </p:column>
                 <p:column headerText="Apellido">
-                    <p:outputLabel value="#{pas.apePas}"/>
+                    <p:outputLabel value="#{pasajero.apePas}"/>
                 </p:column>
                 <p:column headerText="TipoDocumento">
-                    <p:outputLabel value="#{pas.tipoDocPas}"/>
+                    <p:outputLabel value="#{pasajero.tipoDocPas}"/>
                 </p:column>
                 <p:column headerText="NumeroDocumento">
-                    <p:outputLabel value="#{pas.numDocPas}"/>
+                    <p:outputLabel value="#{pasajero.numDocPas}"/>
                 </p:column>
                 <p:column headerText="Edad">
-                    <p:outputLabel value="#{pas.edadPas}"/>
+                    <p:outputLabel value="#{pasajero.edadPas}"/>
                 </p:column>
                 <p:column headerText="Origen">
-                    <p:outputLabel value="#{pas.origenPas}"/>
+                    <p:outputLabel value="#{pasajero.origenPas}"/>
                 </p:column>
                 <p:column headerText="Destino">
-                    <p:outputLabel value="#{pas.destPas}"/>
+                    <p:outputLabel value="#{pasajero.destPas}"/>
                 </p:column>
                 <f:facet name="footer">
-                    <p:commandButton value="Agregar" actionListener="#{PasajeroC.preparPas}" oncomplete="PF('NewPas').show();" update="NewPas"/>
-                    <p:commandButton value="Refresh" actionListener="#{PasajeroC.list()}" update="form"/>
+                    <p:commandButton value="Agregar" actionListener="#{pasajeroC.preparPasajero()}" oncomplete="PF('NewPas').show();" update="NewPas"/>
+                    <p:commandButton value="Refresh" actionListener="#{pasajeroC.list()}" update="form"/>
                 </f:facet>
             </p:dataTable>
             <p:contextMenu for="data">
                 <p:menuitem value="editar" icon="ui-icon-search" oncomplete="PF('UpdatePas').show();" update="UpdatePas"/>
-                <p:menuitem value="borrar" icon="ui-icon-clear" update="data" actionListener="#{PasajeroC.delete()}"/>
+                <p:menuitem value="borrar" icon="ui-icon-clear" update="data" actionListener="#{pasajeroC.delete()}"/>
             </p:contextMenu>
         </h:form>
         <ui:include src="Add.xhtml"/>

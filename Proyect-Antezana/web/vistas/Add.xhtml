@@ -7,7 +7,7 @@
     <ui:composition>
         
         <p:dialog id="NewPas"
-                  widgetVar="Newpas"
+                  widgetVar="NewPas"
                   appendTo="@(body)"
                   header="Agregar Nuevo Pasajero"
                   closeOnEscape="true"
@@ -15,22 +15,22 @@
                   responsive=".0"
                   modal="true" showEffect="explode">
             <h:form>
-                <p:panelGrid columns="7">
+                <p:panelGrid columns="2">
                     <p:outputLabel value="Nombre"/>
-                    <p:inputText value="#{PasajeroC.pas.nomPas}" placeholder="Nombre"/>
+                    <p:inputText value="#{pasajeroC.pasajero.nomPas}" placeholder="Nombre"/>
                     <p:outputLabel value="Apellido"/>
-                    <p:inputText value="#{PasajeroC.pas.apePas}" placeholder="Apellido"/>
+                    <p:inputText value="#{pasajeroC.pasajero.apePas}" placeholder="Apellido"/>
                     <p:outputLabel value="TipoDoc"/>
-                    <p:inputText value="#{PasajeroC.pas.tipoDocPas}" placeholder="TipoDoc"/>
+                    <p:inputText value="#{pasajeroC.pasajero.tipoDocPas}" placeholder="TipoDoc"/>
                     <p:outputLabel value="NumeroDoc"/>
-                    <p:inputText value="#{PasajeroC.pas.numDocPas}" placeholder="NumeroDoc"/>
+                    <p:inputText value="#{pasajeroC.pasajero.numDocPas}" placeholder="NumeroDoc"/>
                     <p:outputLabel value="Edad"/>
-                    <p:inputText value="#{PasajeroC.pas.edadPas}" placeholder="Edad"/>
+                    <p:inputText value="#{pasajeroC.pasajero.edadPas}" placeholder="Edad"/>
                     <p:outputLabel value="Origen"/>
-                    <p:inputText value="#{PasajeroC.pas.origenPas}" placeholder="Origen"/>
+                    <p:inputText value="#{pasajeroC.pasajero.origenPas}" placeholder="Origen"/>
                     <p:outputLabel value="Destino"/>
-                    <p:inputText value="#{PasajeroC.pas.destPas}" placeholder="Destino"/>
-                    <p:commandButton value="Insertar" actionListener="#{PasajeroC.add()}" update=":form:data" oncomplete="handleSubmit(args,'Newpas');"/>
+                    <p:inputText value="#{pasajeroC.pasajero.destPas}" placeholder="Destino"/>
+                    <p:commandButton value="Insertar" actionListener="#{pasajeroC.add()}" update=":form:data" oncomplete="handleSubmit(args,'NewPas');"/>
                 </p:panelGrid>
             </h:form>
         </p:dialog>
