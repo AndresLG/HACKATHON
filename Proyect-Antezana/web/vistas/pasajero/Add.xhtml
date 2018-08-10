@@ -24,25 +24,13 @@
                     <p:inputText value="#{pasajeroC.pasajero.apePas}" placeholder="Apellido" maxlength="40">
                         <p:keyFilter regEx="/[a-z_]/i"/>
                     </p:inputText>
-                    <p:outputLabel value="TipoDoc"/>
-                    <p:inputText value="#{pasajeroC.pasajero.tipoDocPas}" placeholder="TipoDoc" maxlength="3">
-                        <p:keyFilter regEx="/[a-z_]/i"/>
-                    </p:inputText>
-                    <p:outputLabel value="NumeroDoc"/>
-                    <p:inputText value="#{pasajeroC.pasajero.numDocPas}" placeholder="NumeroDoc" maxlength="8">
+                    <p:outputLabel value="Dni"/>
+                    <p:inputText value="#{pasajeroC.pasajero.dniPas}" placeholder="NumeroDoc" maxlength="8">
                         <p:keyFilter regEx="/[\d]/"/>
                     </p:inputText>
                     <p:outputLabel value="Edad"/>
                     <p:inputText value="#{pasajeroC.pasajero.edadPas}" placeholder="Edad" maxlength="2">
                         <p:keyFilter regEx="/[\d]/"/>
-                    </p:inputText>
-                    <p:outputLabel value="Origen"/>
-                    <p:inputText value="#{pasajeroC.pasajero.origenPas}" placeholder="Origen" maxlength="20">
-                        <p:keyFilter regEx="/[a-z_]/i"/>
-                    </p:inputText>
-                    <p:outputLabel value="Destino"/>
-                    <p:inputText value="#{pasajeroC.pasajero.destPas}" placeholder="Destino" maxlength="20">
-                        <p:keyFilter regEx="/[a-z_]/i"/>
                     </p:inputText>
                     <p:commandButton value="Insertar" actionListener="#{pasajeroC.add()}" update=":form:data" oncomplete="handleSubmit(args,'NewPas');"/>
                 </p:panelGrid>

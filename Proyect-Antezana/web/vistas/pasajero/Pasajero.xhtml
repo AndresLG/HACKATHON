@@ -22,20 +22,11 @@
                 <p:column headerText="Apellido">
                     <p:outputLabel value="#{pasajero.apePas}"/>
                 </p:column>
-                <p:column headerText="TipoDocumento">
-                    <p:outputLabel value="#{pasajero.tipoDocPas}"/>
-                </p:column>
-                <p:column headerText="NumeroDocumento">
-                    <p:outputLabel value="#{pasajero.numDocPas}"/>
+                <p:column headerText="Dni">
+                    <p:outputLabel value="#{pasajero.dniPas}"/>
                 </p:column>
                 <p:column headerText="Edad">
                     <p:outputLabel value="#{pasajero.edadPas}"/>
-                </p:column>
-                <p:column headerText="Origen">
-                    <p:outputLabel value="#{pasajero.origenPas}"/>
-                </p:column>
-                <p:column headerText="Destino">
-                    <p:outputLabel value="#{pasajero.destPas}"/>
                 </p:column>
                 <f:facet name="footer">
                     <p:commandButton value="Agregar" actionListener="#{pasajeroC.preparPasajero()}" oncomplete="PF('NewPas').show();" update="NewPas"/>

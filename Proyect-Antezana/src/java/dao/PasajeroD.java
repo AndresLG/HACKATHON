@@ -13,14 +13,11 @@ public class PasajeroD extends Dao implements PasajeroI{
     public void agregar(PasajeroM pasajero) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.getCn().prepareStatement("insert into Pasajero(nomPas, apePas, tipoDocPas, numDocPas, edadPas, origenPas, destPas) values(?,?,?,?,?,?,?)");
+            PreparedStatement st = this.getCn().prepareStatement("insert into Pasajero(nomPas, apePas, dniPas, edadPas) values(?,?,?,?)");
             st.setString(1, pasajero.getNomPas());
             st.setString(2, pasajero.getApePas());
-            st.setString(3, pasajero.getTipoDocPas());
-            st.setString(4, pasajero.getNumDocPas());
+            st.setString(4, pasajero.getDniPas());
             st.setString(5, pasajero.getEdadPas());
-            st.setString(6, pasajero.getOrigenPas());
-            st.setString(7, pasajero.getDestPas());
             st.executeUpdate();
         } catch (Exception e) {
             throw e;
@@ -33,9 +30,9 @@ public class PasajeroD extends Dao implements PasajeroI{
     public void modificar(PasajeroM pasajero) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.getCn().prepareStatement("update Pasajero set origenPas=?,destPas=? where idPas=?");
-            st.setString(1, pasajero.getOrigenPas());
-            st.setString(2, pasajero.getDestPas());
+            PreparedStatement st = this.getCn().prepareStatement("update Pasajero set nomPas=?,apePas=? where idPas=?");
+            st.setString(1, pasajero.getNomPas());
+            st.setString(2, pasajero.getApePas());
             st.setInt(3, pasajero.getIdPas());
             st.executeUpdate();
         } catch (Exception e) {
@@ -74,11 +71,8 @@ public class PasajeroD extends Dao implements PasajeroI{
                 pasajero.setIdPas(rs.getInt("IdPas"));
                 pasajero.setNomPas(rs.getString("NomPas"));
                 pasajero.setApePas(rs.getString("ApePas"));
-                pasajero.setTipoDocPas(rs.getString("TipoDocPas"));
-                pasajero.setNumDocPas(rs.getString("NumDocPas"));
+                pasajero.setDniPas(rs.getString("DniPas"));
                 pasajero.setEdadPas(rs.getString("EdadPas"));
-                pasajero.setOrigenPas(rs.getString("OrigenPas"));
-                pasajero.setDestPas(rs.getString("DestPas"));
                 lista.add(pasajero);
             }
             return lista;

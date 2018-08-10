@@ -16,12 +16,12 @@
                   modal="true" showEffect="explode">
             <h:form>
                 <p:panelGrid columns="2">
-                    <p:outputLabel value="Origen"/>
-                    <p:inputText value="#{pasajeroC.pasajero.origenPas}" placeholder="Origen" maxlength="20">
+                    <p:outputLabel value="Nombre"/>
+                    <p:inputText value="#{pasajeroC.pasajero.nomPas}" placeholder="Nombre" maxlength="20">
                         <p:keyFilter regEx="/[a-z_]/i"/>
                     </p:inputText>
-                    <p:outputLabel value="Destino"/>
-                    <p:inputText value="#{pasajeroC.pasajero.destPas}" placeholder="Destino" maxlength="20">
+                    <p:outputLabel value="Apellido"/>
+                    <p:inputText value="#{pasajeroC.pasajero.apePas}" placeholder="Apellido" maxlength="20">
                         <p:keyFilter regEx="/[a-z_]/i"/>
                     </p:inputText>
                     <p:commandButton value="Aceptar" actionListener="#{pasajeroC.update()}" update=":form:data" oncomplete="handleSubmit(args,'UpdatePas');"/>
