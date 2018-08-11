@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+        
+        <p:dialog id="UpdateRuta"
+                  widgetVar="UpdateRuta"
+                  appendTo="@(body)"
+                  header="Modificar Ruta"
+                  closeOnEscape="true"
+                  resizable="false"
+                  responsive=".0"
+                  modal="true" showEffect="explode">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Origen"/>
+                    <p:inputText value="#{rutaC.ruta.origen}" placeholder="Origen" maxlength="20">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
+                    <p:outputLabel value="Destino"/>
+                    <p:inputText value="#{rutaC.ruta.destino}" placeholder="Destino" maxlength="20">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
+                    <p:commandButton value="Aceptar" actionListener="#{rutaC.update()}" update=":form:data" oncomplete="handleSubmit(args,'UpdateRuta');"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+    
+</html>

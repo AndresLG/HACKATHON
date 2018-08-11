@@ -13,11 +13,11 @@ public class PasajeroD extends Dao implements PasajeroI{
     public void agregar(PasajeroM pasajero) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.getCn().prepareStatement("insert into Pasajero(nomPas, apePas, dniPas, edadPas) values(?,?,?,?)");
+            PreparedStatement st = this.getCn().prepareStatement("insert into Pasajero(nomPas,apePas,dniPas,edadPas) values(?,?,?,?)");
             st.setString(1, pasajero.getNomPas());
             st.setString(2, pasajero.getApePas());
-            st.setString(4, pasajero.getDniPas());
-            st.setString(5, pasajero.getEdadPas());
+            st.setString(3, pasajero.getDniPas());
+            st.setString(4, pasajero.getEdadPas());
             st.executeUpdate();
         } catch (Exception e) {
             throw e;

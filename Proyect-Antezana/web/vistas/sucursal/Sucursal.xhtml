@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Sucursales</title>
+        <script src="../../resources/jsfCrud.js" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <a href="../../index.xhtml" style="font-size: x-large"> Inicio </a>
+        </h:form>
+        
+        <h:form id="form">
+            <p:growl autoUpdate="true" life="1500"/>
+            <p:dataTable id="data" value="#{sucursalC.lstsucursal}" var="sucursal" paginator="true" rows="8" selectionMode="single" selection="#{sucursalC.sucursal}" rowKey="#{sucursal.idSuc}">
+                <p:column headerText="Codigo">
+                    <p:outputLabel value="#{sucursal.idSuc}"/>
+                </p:column>
+                <p:column headerText="Nombre">
+                    <p:outputLabel value="#{sucursal.nomSuc}"/>
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton value="Agregar" actionListener="#{sucursalC.preparSucursal()}" oncomplete="PF('NewSuc').show();" update="NewSuc"/>
+                    <p:commandButton value="Refresh" actionListener="#{sucursalC.list()}" update="form"/>
+                </f:facet>
+            </p:dataTable>
+            <p:contextMenu for="data">
+                <p:menuitem value="editar" icon="ui-icon-search" oncomplete="PF('UpdateSuc').show();" update="UpdateSuc"/>
+                <p:menuitem value="borrar" icon="ui-icon-clear" update="data" actionListener="#{sucursalC.delete()}"/>
+            </p:contextMenu>
+        </h:form>
+        <ui:include src="Add.xhtml"/>
+        <ui:include src="Update.xhtml"/>
+    </h:body>
+</html>
+

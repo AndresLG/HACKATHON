@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+        
+        <p:dialog id="NewBus"
+                  widgetVar="NewBus"
+                  appendTo="@(body)"
+                  header="Agregar Nuevo Bus"
+                  closeOnEscape="true"
+                  resizable="false"
+                  responsive=".0"
+                  modal="true" showEffect="explode">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="CantidadAsiento"/>
+                    <p:inputText value="#{busC.bus.cantAs}" placeholder="CantAs" maxlength="2">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
+                    <p:outputLabel value="FechaViaje"/>
+                    <p:inputMask value="#{busC.bus.fechaVj}" placeholder="fechaVj" mask="9999/99/99"/>
+                    <p:outputLabel value="Trabajador"/>
+                    <p:inputText value="#{busC.bus.trabajador_idTrab}" placeholder="Trabajador" maxlength="1">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
+                    <p:commandButton value="Insertar" actionListener="#{busC.add()}" update=":form:data" oncomplete="handleSubmit(args,'NewBus');"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+    
+</html>
+
