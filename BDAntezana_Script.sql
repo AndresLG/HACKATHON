@@ -1,6 +1,9 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2018-08-10 22:26:40.565
-
+CREATE DATABASE BDAntezana
+GO
+USE BDAntezana
+GO
 -- tables
 -- Table: Bus
 CREATE TABLE Bus (
